@@ -25,3 +25,12 @@ const indiaStateBoundary = L.geoJSON(indiaStates, {
 })
 
 indiaStateBoundary.addTo(map);
+
+/* Overlay - National Parks */
+const npMarkers = L.geoJSON(nationalParks, {
+	onEachFeature: function (feature, layer) {
+		layer.bindPopup(feature.properties.name)
+	}
+})
+
+npMarkers.addTo(map)
