@@ -39,7 +39,7 @@ const npMarkers = L.geoJSON(nationalParks, {
 		return L.circleMarker(latlng, npMarkerOptions) 
 	},
 	onEachFeature: function (feature, layer) {
-		layer.bindPopup(feature.properties.name)
+		layer.bindTooltip(feature.properties.name)
 	}
 })
 
