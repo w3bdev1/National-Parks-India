@@ -30,7 +30,11 @@ const cartoDB_DarkMatterNoLabels = L.tileLayer('https://{s}.basemaps.cartocdn.co
 	maxZoom: 20
 });
 
-cartoDB_DarkMatterNoLabels.addTo(map)
+if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+	cartoDB_DarkMatterNoLabels.addTo(map)
+} else {
+	osm.addTo(map)
+}
 
 /* Overlay - India */
 const indiaBoundaryStyle = {

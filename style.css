@@ -5,3 +5,9 @@ body {
 #map {
 	height: 100vh;
 }
+
+@media (prefers-color-scheme: dark) { 
+	#map {
+		background-color: #333;
+	}
+}
