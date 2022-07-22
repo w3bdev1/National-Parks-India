@@ -27,7 +27,17 @@ const indiaStateBoundary = L.geoJSON(indiaStates, {
 indiaStateBoundary.addTo(map);
 
 /* Overlay - National Parks */
+const npMarkerOptions = {
+	radius: 5,
+	weight: 2,
+	color: 'green',
+	fillOpacity: 0.5,
+}
+
 const npMarkers = L.geoJSON(nationalParks, {
+	pointToLayer: function (feature, latlng) {
+		return L.circleMarker(latlng, npMarkerOptions) 
+	},
 	onEachFeature: function (feature, layer) {
 		layer.bindPopup(feature.properties.name)
 	}
