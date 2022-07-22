@@ -1,8 +1,11 @@
 /* Initialization */
 const midPoint = [25.70, 82.79]
+const bound_lb = new L.LatLng(3, 65)
+const bound_tr = new L.LatLng(39, 99)
 const map = L.map('map', {
 	minZoom: 4,
-    maxZoom: 11,
+	maxZoom: 11,
+	maxBounds: new L.LatLngBounds(bound_lb, bound_tr)
 }).setView(midPoint, 5);
 
 /* Tile Provider */
