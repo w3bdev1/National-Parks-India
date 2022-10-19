@@ -5,8 +5,12 @@ const bound_tr = new L.LatLng(39, 99)
 const map = L.map('map', {
 	minZoom: 4,
 	maxZoom: 11,
-	maxBounds: new L.LatLngBounds(bound_lb, bound_tr)
+	maxBounds: new L.LatLngBounds(bound_lb, bound_tr),
+    attributionControl: false
 }).setView(midPoint, 5);
+
+/* Attribution prefix */
+L.control.attribution({prefix: '&copy; Sudeep Biswas'}).addTo(map);
 
 /* Tile Provider */
 const osm = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
