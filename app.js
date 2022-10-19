@@ -86,3 +86,17 @@ const layerControl = L.control.layers(
 		"National Parks": npMarkers,
 	}
 ).addTo(map)
+
+/* Caption */
+const caption = L.control({
+	position: 'bottomright'
+})
+
+caption.onAdd = function(_map) {
+	this.section = L.DomUtil.create('section', 'caption')
+	this.section.innerHTML = '<h1>National Parks of India</h1>'
+	this.section.innerHTML += '<p>Updated till August, 2022</p>'
+	return this.section
+}
+
+caption.addTo(map)
