@@ -34,11 +34,9 @@ const cartoDB_DarkMatterNoLabels = L.tileLayer('https://{s}.basemaps.cartocdn.co
 	maxZoom: 20
 });
 
-if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-	cartoDB_DarkMatterNoLabels.addTo(map)
-} else {
-	osm.addTo(map)
-}
+const emptyLayer = L.tileLayer('')
+
+emptyLayer.addTo(map)
 
 /* Overlay - India */
 const indiaBoundaryStyle = {
@@ -76,6 +74,7 @@ npMarkers.addTo(map)
 /* Layer Control */
 const layerControl = L.control.layers(
 	baseMaps = {
+		"Clean Background": emptyLayer,
 		"Physical Map": osm,
 		// "Physical Map (without labels)": stamen_TerrainBackground,
 		"Physical Map Dark": cartoDB_DarkMatter,
